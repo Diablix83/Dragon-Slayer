@@ -6,3 +6,6 @@ RPG Game using:
   - PHP : Controller (database)
   - MySQL : Well... Maybe... Maybe yeah? Maybe this is for the database ? HMMMM ??????
   - Javascript : Controller++ (Why not? :P)
+
+
+Character creation : 135 points to distribute.
