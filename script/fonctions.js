@@ -85,6 +85,36 @@ function attaqueDragon(){
 	
 }
 
+function touche(attaquant, defenseur){
+    // Tranposons tous en % en considérant que defenseur.esquive est le 100%:
+    // Produit en croix :   defenseur = 60 -> 100%
+    //                      attaquant = 50 -> ???%
+    att = attaquant.precision * 100 / defenseur.esquive //= 83.33;
+    def = 100;
+    rate = def - att;
+    
+    touche = rand(min=1, max=100)
+    
+    if(touche > rate){
+        if(touche >= (100 - attaquant.critiqueTotal){
+            //CRITIQUE ! damage()*3
+        }
+        else{
+            //damage()
+        }
+    }
+    else{
+        MISS
+    }
+}
+
+
+function damage(attaquant, defenseur, arme){
+    // La règle est la suivante : (attaquant.force - defenseur.defense) + rand(min=1, max=arme.force)
+}
+
+
+
 function affichageHistorique(attaquant, defenseur, dommage, pDV){
 	document.querySelector('#historique article').innerHTML += `<p><span class="bleu">[tour ${nb_tour}]</span> <strong>${attaquant}</strong> inflige <strong class="rouge">${dommage}</strong> dégats à <strong>${defenseur}</strong>, il lui reste <strong class="rouge">${pDV}</strong> points de vie</p>`;
 }
