@@ -84,7 +84,7 @@ function attaqueJoueur(){
 function attaqueDragon(){
 	
 }
-
+/*
 function touche(attaquant, defenseur){
     // Tranposons tous en % en considérant que defenseur.esquive est le 100%:
     // Produit en croix :   defenseur = 60 -> 100%
@@ -97,16 +97,16 @@ function touche(attaquant, defenseur){
     
     if(touche > rate){
         if(touche >= (100 - attaquant.critiqueTotal){
-            //CRITIQUE ! damage()*3
+            CRITIQUE ! damage()*3
         }
         else{
-            //damage()
+            damage()
         }
     }
     else{
         MISS
     }
-}
+}*/
 
 
 function damage(attaquant, defenseur, arme){
@@ -117,4 +117,10 @@ function damage(attaquant, defenseur, arme){
 
 function affichageHistorique(attaquant, defenseur, dommage, pDV){
 	document.querySelector('#historique article').innerHTML += `<p><span class="bleu">[tour ${nb_tour}]</span> <strong>${attaquant}</strong> inflige <strong class="rouge">${dommage}</strong> dégats à <strong>${defenseur}</strong>, il lui reste <strong class="rouge">${pDV}</strong> points de vie</p>`;
+}
+
+function recupAllItems(){
+	$.getJSON(`php/askdb.php?controller=masters&task=allItems`, function(donnees){
+		console.log(donnees);
+	});
 }
