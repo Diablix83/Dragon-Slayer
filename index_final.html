@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/welcome.css">
+		<link rel="stylesheet" type="text/css" href="css/userSession.css">
+		<link rel="stylesheet" type="text/css" href="css/character.css">
+		<link rel="stylesheet" type="text/css" href="css/battle.css">
+		<title>Dragon Slayer</title>
+	</head>
+	<body>
+		<main>
+			<div id="game">
+				<div id="welcome">
+					<h1>Dragon Slayer</h1>
+					<div class="flexInline flexRow">
+						<div id="connexion">
+							<h3>Connexion</h3>
+							<form action="" method="GET" class="flex flexColumn">
+								<input type="email" name="email" id="connexion_email" placeholder="Votre email" required />
+								<input type="password" name="password" id="connexion_password" placeholder="Mot de passe" required/>
+								<input type="submit" value="Connexion"/>
+							</form>
+						</div>
+						<div id="inscription">
+							<h3>Inscription</h3>
+							<form action="" method="POST" class="flex flexColumn">
+								<input type="email" name="email" id="inscription_email" placeholder="Votre email" required/>
+								<input type="text" name="pseudo" id="inscription_pseudo" placeholder="Pseudo" required pattern="^\w{3,255}$" title="Uniquement des lettres ou des chiffres ainsi que le underscore ' _ '. Pas d'accent et pas de symbole."/>
+								<input type="password" name="password" id="inscription_password" placeholder="Mot de passe de 8 à 255 caractères" required title="Entrez un mot de passe de 8 à 255 caractères" />
+								<input type="password" name="confirmPassword" id="inscription_confirm_password" placeholder="Confirmer votre mot de passe" required/>
+								<input type="submit" value="Inscription"/>
+							</form>
+						</div>						
+					</div>
+				</div>
+				<div id="userSession" class="hideLeft flex flexColumn spaceBetween">
+					<h3></h3>
+					<p>Vous avez <span id="howManyCharacterAlive"></span> personnage(s)</p>
+					<ul id="charactersAlive"></ul>
+					<p>Vous avez perdu <span id="howManyCharacterDead"></span> personnage(s)</p>
+					<ul id="charactersDead"></ul>
+					<div class="flex flexRow spaceBetween">
+						<input type="submit" id="characterCreate" value="Créer un personnage">
+						<input type="submit" id="deconnexion" value="Déconnexion">
+					</div>
+				</div>
+				<div id="characterCreation" class="hideRight">
+
+					
+				</div>
+			</div>
+			
+<!--			<section>
+				<article id="joueur">
+
+					<h2>Joueur</h2>
+					<img src="img/knight.jpg" alt="Chevalier">
+					<h3>Point de vie : <strong class="pv"></strong>/<strong class="pvMax"></strong></h3>
+					<p>Configurez votre personnage avant le combat :</p>
+
+					<article>
+						<select name="armure" id="armure">
+							<option value="legere">Armure légère</option>
+							<option value="moyenne">Armure intermédiaire</option>
+							<option value="lourde">Armure lourde</option>
+						</select>
+						<select name="arme" id="arme">
+							<option value="dague">Dague</option>
+							<option value="epee">Epée longue</option>
+							<option value="hallebarde">Hallebarde</option>
+						</select>
+					</article>
+
+					<article>
+						<p>Vos caractéristiques :</p>
+
+						<p id="defense">Défense : <span></span> (<em class="joueur"></em> + <em class="armure"></em>)</p>
+						<p id="esquive">Esquive : <span></span> (<em class="joueur"></em> + <em class="armure"></em>)</p>
+						<p id="vitesse">Vitesse : <span></span> (<em class="joueur"></em> + <em class="armure"></em>)</p>
+
+						<p id="precision">Precision : <span></span> (<em class="joueur"></em> + <em class="arme"></em>)</p>
+						<p id="force">Force : <span></span> (<em class="joueur"></em> + <em class="arme"></em>)</p>
+						<p id="critique">Critique : <span></span> (<em class="joueur"></em> + <em class="arme"></em>)</p>
+					</article>
+
+					<button id="start_battle">Commencer le combat</button>
+					<button id="attack">Attaquer</button>
+					<button id="reset">Try again !</button>
+
+				</article>
+
+				<article id="dragon">
+
+					<h2>Dragon</h2>
+					<img src="img/dragon.jpg" alt="Dragon">
+					<h3>Point de vie : <strong class="pv"></strong>/<strong class="pvMax"></strong></h3>
+				
+				</article>
+			</section>
+			<section id="historique">
+
+				<h3>Historique du combat :</h2>
+				<article></article>
+			</section>
+-->
+		</main>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="script_final/donnees.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_general.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_welcome.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_creation_character.js"></script>
+		<script type="text/javascript" src="script_final/script.js"></script>
+	</body>
+</html>
