@@ -1,0 +1,51 @@
+/*
+███╗   ███╗ █████╗ ██╗███╗   ██╗
+████╗ ████║██╔══██╗██║████╗  ██║
+██╔████╔██║███████║██║██╔██╗ ██║
+██║╚██╔╝██║██╔══██║██║██║╚██╗██║
+██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+*/
+
+#userSession{
+    position: fixed;
+
+    font-size: 1.4rem;
+    text-align: center;
+
+    background: #c4c4c4;
+
+    height: 100%;
+    width: 300px;
+    transition: all 1s;
+}
+
+#userSession p{
+    font-weight: bold;
+}
+
+#userSession div{
+    margin: 10px;
+}
+
+#characterCreation{
+    position: fixed;
+    width: calc(100% - 320px);
+    height: calc(100% - 40px);
+    background: navy;
+    padding: 20px;
+    top: 20px;
+    right: 0;
+
+    transition: all 2s;
+}
+
+
+/*
+    ██╗███╗   ███╗ █████╗ ██╗███╗   ██╗
+   ██╔╝████╗ ████║██╔══██╗██║████╗  ██║
+  ██╔╝ ██╔████╔██║███████║██║██╔██╗ ██║
+ ██╔╝  ██║╚██╔╝██║██╔══██║██║██║╚██╗██║
+██╔╝   ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
+╚═╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+*/

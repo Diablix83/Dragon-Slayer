@@ -21,6 +21,27 @@ body{
     text-align: center;
 }
 
+
+h1, h2, h3{
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+h1{
+    font-size: 9rem;
+}
+
+h2{
+    font-size: 5rem;
+}
+
+h3{
+    font-size: 3rem;
+}
+
+
 /*
     ██╗ ██████╗ ██╗      ██████╗ ██████╗  █████╗ ██╗     
    ██╔╝██╔════╝ ██║     ██╔═══██╗██╔══██╗██╔══██╗██║     
@@ -39,9 +60,6 @@ body{
 */
 
 h1{
-    font-size: 9rem;
-    margin: 0;
-    padding: 10px;
     border-bottom: 1px firebrick solid;
 }
 
@@ -53,6 +71,7 @@ h1{
 ██╔╝   ██║  ██║███████╗██║  ██║██████╔╝███████╗██║  ██║
 ╚═╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝
 */
+
 /*
 ███╗   ███╗ █████╗ ██╗███╗   ██╗
 ████╗ ████║██╔══██╗██║████╗  ██║
@@ -62,48 +81,80 @@ h1{
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
 
-section{
+#game{
     margin: 0 auto;
 }
 
-article{
-    display: inline-block;
-    vertical-align: top;
-    max-width: 400px;
-    margin: 10px;
-    text-align: center;
-    font-size: 1.4rem;
+/*
+
+    Le style du main est dispersé dans BATTLE.CSS, CHARACTER.CSS, WELCOME.CSS
+
+*/
+/*
+      ███████╗██╗     ███████╗██╗  ██╗
+      ██╔════╝██║     ██╔════╝╚██╗██╔╝
+█████╗█████╗  ██║     █████╗   ╚███╔╝ 
+╚════╝██╔══╝  ██║     ██╔══╝   ██╔██╗ 
+      ██║     ███████╗███████╗██╔╝ ██╗
+      ╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝
+*/
+
+.flex{
+    display: flex;
 }
 
-h2{
-    font-size: 5rem;
-    margin: 0;
-    padding: 10px;
+.flexInline{
+    display: inline-flex;
 }
 
-img{
-    height: 100px;
+.flexRow{
+    flex-direction: row;
 }
 
-h3{
-    font-size: 3rem;
-    margin: 0;
-    padding: 10px;
+.flexColumn{
+    flex-direction: column;
 }
 
-.pv{
-    color: firebrick;
+.alignItemsStart{
+    align-items: flex-start;
 }
 
-p{
-    font-size: 1.4rem;
-    font-weight: normal;
+.alignItemsCenter{
+    align-items: center;
 }
 
-article p{
-    text-align: left;
+.alignItemsStretch{
+    align-items: stretch;
 }
 
+.spaceAround{
+    justify-content: space-around;
+}
+
+.spaceBetween{
+    justify-content: space-between;
+}
+
+.flexWrap{
+    flex-wrap: wrap;
+}
+
+/*
+          ██╗███████╗██╗     ███████╗██╗  ██╗
+         ██╔╝██╔════╝██║     ██╔════╝╚██╗██╔╝
+█████╗  ██╔╝ █████╗  ██║     █████╗   ╚███╔╝ 
+╚════╝ ██╔╝  ██╔══╝  ██║     ██╔══╝   ██╔██╗ 
+      ██╔╝   ██║     ███████╗███████╗██╔╝ ██╗
+      ╚═╝    ╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝
+*/
+/*
+       ██████╗██╗      █████╗ ███████╗███████╗     █████╗  ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+      ██╔════╝██║     ██╔══██╗██╔════╝██╔════╝    ██╔══██╗██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+█████╗██║     ██║     ███████║███████╗███████╗    ███████║██║        ██║   ██║██║   ██║██╔██╗ ██║
+╚════╝██║     ██║     ██╔══██║╚════██║╚════██║    ██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║
+      ╚██████╗███████╗██║  ██║███████║███████║    ██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+       ╚═════╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+*/
 .rouge{
     color: red;
 }
@@ -112,41 +163,36 @@ article p{
     color: blue;
 }
 
-#historique{
-    width: 100%;
-}
-#historique article{
-    max-height: 180px;
-    overflow: scroll;
+.warning{
+    border: 2px solid red;
 }
 
-/*######################*/
-/*## Personnalisation ##*/
-/*######################*/
-
-select{
-    display: block;
+.correct{
+    border: 2px solid green;
 }
 
-.joueur{
-    color: cornflowerblue;
+.hideUp{
+    margin-top: -100%;
+}
+.hideDown{
+    margin-bottom: -100%;
+}
+.hideLeft{
+    margin-left: -100%;
+}
+.hideRight{
+    margin-right: -100%;
 }
 
-select #arme{
-    background-color: goldenrod;
-}
+/*
+          ██╗ ██████╗██╗      █████╗ ███████╗███████╗     █████╗  ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+         ██╔╝██╔════╝██║     ██╔══██╗██╔════╝██╔════╝    ██╔══██╗██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+█████╗  ██╔╝ ██║     ██║     ███████║███████╗███████╗    ███████║██║        ██║   ██║██║   ██║██╔██╗ ██║
+╚════╝ ██╔╝  ██║     ██║     ██╔══██║╚════██║╚════██║    ██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║
+      ██╔╝   ╚██████╗███████╗██║  ██║███████║███████║    ██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+      ╚═╝     ╚═════╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+*/
 
-.arme{
-    color: goldenrod;
-}
-
-select #armure{
-    background-color: teal;
-}
-
-.armure{
-    color: teal;
-}
 
 /*
     ██╗███╗   ███╗ █████╗ ██╗███╗   ██╗
@@ -156,6 +202,7 @@ select #armure{
 ██╔╝   ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
 ╚═╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
+
 /*
 ███████╗ ██████╗  ██████╗ ████████╗███████╗██████╗ 
 ██╔════╝██╔═══██╗██╔═══██╗╚══██╔══╝██╔════╝██╔══██╗
@@ -164,6 +211,8 @@ select #armure{
 ██║     ╚██████╔╝╚██████╔╝   ██║   ███████╗██║  ██║
 ╚═╝      ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝
 */
+
+
 /*
     ██╗███████╗ ██████╗  ██████╗ ████████╗███████╗██████╗ 
    ██╔╝██╔════╝██╔═══██╗██╔═══██╗╚══██╔══╝██╔════╝██╔══██╗
