@@ -5,17 +5,26 @@
 		<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/doors_and_gates.css">
 		<link rel="stylesheet" type="text/css" href="css/welcome.css">
 		<link rel="stylesheet" type="text/css" href="css/userSession.css">
 		<link rel="stylesheet" type="text/css" href="css/character.css">
+		<link rel="stylesheet" type="text/css" href="css/highlight.css">
+		<link rel="stylesheet" type="text/css" href="css/attribute_bonus_points.css">
+		<link rel="stylesheet" type="text/css" href="css/learn_new_skill.css">
 		<link rel="stylesheet" type="text/css" href="css/battle.css">
 		<title>Dragon Slayer</title>
 	</head>
 	<body>
 		<main>
 			<div id="game">
-				<div id="welcome">
+				<div class="firstGate top">
 					<h1>Dragon Slayer</h1>
+				</div>
+				<div class="firstGate bottom">
+					<h2>Créé par Alexandre DERAI</h2>
+				</div>
+				<div id="welcome">
 					<div class="flexInline flexRow">
 						<div id="connexion">
 							<h3>Connexion</h3>
@@ -39,81 +48,497 @@
 				</div>
 				<div id="userSession" class="hideLeft flex flexColumn spaceBetween">
 					<h3></h3>
-					<p>Vous avez <span id="howManyCharacterAlive"></span> personnage(s)</p>
+					<p>Vous avez <span id="howManyCharacterAlive"></span> personnage(s) à n'être jamais mort</p>
 					<ul id="charactersAlive"></ul>
-					<p>Vous avez perdu <span id="howManyCharacterDead"></span> personnage(s)</p>
+					<p>Vous avez <span id="howManyCharacterDead"></span> personnage(s) à être mort au moins une fois</p>
 					<ul id="charactersDead"></ul>
-					<div class="flex flexRow spaceBetween">
+					<div class="btnUserSession flex flexRow spaceBetween">
 						<input type="submit" id="characterCreate" value="Créer un personnage">
 						<input type="submit" id="deconnexion" value="Déconnexion">
 					</div>
 				</div>
 				<div id="characterCreation" class="hideRight">
+					<h3>Création de personnage</h3>
+					<div class="flex flexRow flexWrap spaceAround alignItemsStart">
+						<div id="creation">
+							<form action="" method="POST" class="flex flexColumn spaceBetween">
+								<div class="flex flexRow alignItemsCenter spaceBetween">
+									<label for="newCharName">Nom :</label>
+									<input type="text" name="newCharName" id="newCharName" placeholder="Nom du personnage" required>
+								</div>
 
-					
+								<div class="flex flexRow alignItemsCenter spaceBetween">
+									<label for="newCharRace"><span class="raceColor">Race</span> :</label>
+									<select name="newCharRace" id="newCharRace"></select>
+								</div>
+								<div class="flex flexRow alignItemsCenter spaceBetween">
+									<label for="newCharClass"><span class="classColor">Classe</span> :</label>
+									<select name="newCharClass" id="newCharClass"></select>
+								</div>
+								<div>
+									<p>Répartissez un total de 135 points (5 par 5).</p>
+									<p>Il vous reste <span id="creationStatPoints" class="statPoints"></span> point(s) à utiliser</p>
+								</div>
+
+								<table>
+									<caption class="persoColor">Stats</caption>
+									<tbody>
+										<tr>
+											<td>
+												<label for="newCharHealthMax">PV Maximum :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharHealthMax" id="newCharHealthMax" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalHealth"></span>
+											</td>
+											<td>
+												(<span id="bonusHealthRace"></span>+<span id="bonusHealthClass"></span>+<span id="bonusHealthPerso"></span>)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="newCharDefense">Défense :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharDefense" id="newCharDefense" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalDefense"></span>
+											</td>
+											<td>
+												(<span id="bonusDefenseRace"></span>+<span id="bonusDefenseClass"></span>+<span id="bonusDefensePerso"></span>)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="newCharDodge">Esquive :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharDodge" id="newCharDodge" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalDodge"></span>
+											</td>
+											<td>
+												(<span id="bonusDodgeRace"></span>+<span id="bonusDodgeClass"></span>+<span id="bonusDodgePerso"></span>)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="newCharSpeed">Vitesse :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharSpeed" id="newCharSpeed" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalSpeed"></span>
+											</td>
+											<td>
+												(<span id="bonusSpeedRace"></span>+<span id="bonusSpeedClass"></span>+<span id="bonusSpeedPerso"></span>)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="newCharAccuracy">Précision :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharAccuracy" id="newCharAccuracy" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalAccuracy"></span>
+											</td>
+											<td>
+												(<span id="bonusAccuracyRace"></span>+<span id="bonusAccuracyClass"></span>+<span id="bonusAccuracyPerso"></span>)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="newCharStrength">Force :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharStrength" id="newCharStrength" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalStrength"></span>
+											</td>
+											<td>
+												(<span id="bonusStrengthRace"></span>+<span id="bonusStrengthClass"></span>+<span id="bonusStrengthPerso"></span>)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="newCharCritical">Critique :</label>
+											</td>
+											<td>
+												<input type="number" name="newCharCritical" id="newCharCritical" value="0" step="5" min="0" max="35" placeholder="[0~35]">
+											</td>
+											<td>
+												<span id="totalCritical"></span>
+											</td>
+											<td>
+												(<span id="bonusCriticalRace"></span>+<span id="bonusCriticalClass"></span>+<span id="bonusCriticalPerso"></span>)
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<input type="submit" value="Valider votre création" disabled>
+								<input type="submit" class="cancel" value="Annuler">
+							</form>
+						</div>
+						<div id="details">
+							<p id="descriptionRace"></p>
+							<p id="descriptionClass"></p>
+							<div class="flex flexRow spaceBetween alignItemsStart flexWrap">
+								<div>
+									<h4>Armures autorisées :</h4>
+									<ul id="armorsClassList"></ul>								
+								</div>
+								<div>
+									<h4>Armes autorisées :</h4>
+									<ul id="weaponsClassList"></ul>
+								</div>
+								<div>
+									<h4>Techniques autorisées :</h4>
+									<ul id="skillsClassList"></ul>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+				<div id="myCharacter" class="hideLeft">
+					<input type="submit" id="changeCharacter" value="Changer de personnage">
+					<div class="flex flexRow spaceAround">
+						<h3>CharacterName</h3>
+						<h4><span class="classColor">CharacterClass</span> <span class="raceColor">CharacterRace</span> [<span>CharacterLevel</span> : <span>CharacterExp</span>%]</h4>
+						<p>[Nombre de donjons finis : <span></span>]</p>
+					</div>
+					<div id="expBar">
+						<div>
+							<p>Exp : <span>ActualExp</span> / <span>ExpRequired</span></p>
+						</div>
+						<div id="progressionBar"></div>
+					</div>
+					<div class="flex flexRow spaceAround">
+						<div class="equiped">
+							<h5>Tête</h5>
+							<select name="characterHead" id="characterHead">
+							</select>
+						</div>
+					</div>
+					<div class="flex flexRow spaceAround">
+						<div class="equiped">
+							<h5>Arme main principale</h5>
+							<select name="characterHand_1" id="characterHand_1">
+							</select>
+						</div>
+						<div class="equiped">
+							<h5>Torse</h5>
+							<select name="characterTorso" id="characterTorso">
+							</select>
+						</div>
+						<div class="equiped">
+							<h5>Arme main secondaire</h5>
+							<select name="characterHand_2" id="characterHand_2" disabled>
+							</select>
+						</div>
+					</div>
+					<div class="flex flexRow spaceAround">
+						<div class="equiped">
+							<h5>Mains</h5>
+							<select name="characterHands" id="characterHands">
+							</select>
+						</div>
+						<div class="equiped">
+							<h5>Jambes</h5>
+							<select name="characterLegs" id="characterLegs">
+							</select>
+						</div>
+						<div class="equiped">
+							<h5>Pieds</h5>
+							<select name="characterFeet" id="characterFeet">
+							</select>
+						</div>
+					</div>
+					<div id="fightStance">
+						<h4>Posture de combat</h4>
+						<div class="flex flexRow spaceBetween">
+							<label for="fightingStance1">1 main</label><input type="radio" name="fightingStance" id="fightingStance1" value="1">
+							<label for="fightingStance2">2 mains</label><input type="radio" name="fightingStance" id="fightingStance2" value="2">
+							<label for="fightingStance3" class="notMyClass">Ambidextrie</label><input type="radio" name="fightingStance" id="fightingStance3" value="3" disabled>
+						</div>
+					</div>
+					<div id="myCharacterStats">
+						<div class="flex flexRow spaceBetween">
+							<p>Points bonus à distribuer : <span id="pointsToDistribute"></span></p>
+							<input type="submit" id="attributePointsBtn" value="Attribuer">
+						</div>
+						<div class="flex flexRow spaceBetween">
+							<p>Vous pouvez apprendre <span id="nbSkillToLearn"></span> nouvelle(s) technique(s) / sort(s)</p>
+							<input type="submit" id="openLearnNewSkill" class="invisible" value="Attribuer" disabled>
+						</div>
+						<table>
+							<thead>
+								<tr>
+									<td>Caractéristique</td>
+									<td>Total</td>
+									<td>Bonus <span class="armors">armures</span> et <span class="weapons">armes</span></td>
+									<td>Bonus de classe</td>
+									<td>Bonus de race</td>
+									<td>Points personnels</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="characterPv">
+									<td>PV Max</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="characterDefense">
+									<td>Défense</td>
+									<td></td>
+									<td><span class="armors"></span> <span class="weapons"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="characterDodge">
+									<td>Esquive</td>
+									<td></td>
+									<td><span class="armors"></span> <span class="weapons"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="characterSpeed">
+									<td>Vitesse</td>
+									<td></td>
+									<td><span class="armors"></span> <span class="weapons"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="characterAccuracy">
+									<td>Précision</td>
+									<td></td>
+									<td><span class="weapons"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="characterStrength">
+									<td>Force</td>
+									<td></td>
+									<td><span class="weapons"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="characterCritical">
+									<td>Critique</td>
+									<td></td>
+									<td><span class="weapons"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="inventory" class="flex flexRow spaceBetween alignItemsStart">
+						<div class="flex flexColumn spaceBetween">
+							<ul id="inventoriesName">
+								<li id="allItems" data-table="items" class="choosen">Objets (<span></span>)</li>
+								<li id="allWeapons" data-table="weapons">Armes (<span></span>)</li>
+								<li id="allArmors" data-table="armors">Armures (<span></span>)</li>
+								<li id="allSkills" data-table="skills">Techniques et sorts (<span></span>)</li>
+							</ul>
+							<div class="flex flexRow spaceAround">
+								<input type="submit" id="delete_item" data-delete_id="0" data-delete_table_name="none" value="Supprimer" disabled>
+								<input type="number" id="delete_item_value" value="0" min="0" max="1" class="hideDisplay">
+							</div>
+						</div>
+						<div>
+							<h5></h5>
+							<ul id="choosenList">
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="fightPanel" class="hideRight">
+					<div>
+						<input type="submit" id="startDungeon" value="Commencer le donjon">
+
+						<div id="mobsCounter" class="invisible hideDisplay">
+							<p id="counter"><span></span> / 10</p>
+						</div>
+						<div id="enemyDisplay" class="invisible hideDisplay">
+							<p><span id="bossIcone">[:devil:] </span><span id="enemyName">Enemy</span> [<span id="enemyLevel">1</span>]</p>
+							<div class="healthMax">
+								<div>
+									<p>
+										<span>100</span> / <span>100</span>
+									</p>
+								</div>
+								<div class="currentHealth"></div>
+							</div>
+						</div>
+						<div id="target" class="invisible hideDisplay">
+							<input type="submit" id="targetMyself" value="Moi-même">
+							<input type="submit" id="targetEnemy" value="Ennemi">
+						</div>
+						<div id="myDisplay" class="invisible hideDisplay">
+							<div class="healthMax">
+								<div>
+									<p>
+										<span>100</span> / <span>100</span>
+									</p>
+								</div>
+								<div class="currentHealth"></div>
+							</div>
+							<div class="flex flexRow spaceBetween">
+								<div id="action" class="flex flexColumn spaceBetween">
+									<input type="submit" id="attack" value="Attaquer">
+									<input type="submit" id="useSkill" value="Techniques / Sorts">
+									<input type="submit" id="useItem" value="Objets">
+									<input type="submit" id="flee" value="Fuir">
+								</div>
+								<table id="listToUse" class="hideDisplay">
+									<thead>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+						<div id="historic" class="invisible hideDisplay"></div>
+					</div>
+				</div>
+				<div id="highlight" class="flexInline flexRow">
+					<div id="itemChoosen" class="hideDisplay"></div>
+					<div id="itemHover" class="hideDisplay"></div>
+				</div>
+				<div id="attributeBonusPointsPanel" class="hideRight">
+					<h3>Attribuer vos points bonus personnels</h3>
+					<p>Points restants à attribuer : <span></span></p> 
+					<table>
+						<thead>
+							<tr>
+								<td>Caractéristique</td>
+								<td>Points personnels</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="attributeBonusPv">
+								<td>PV Max</td>
+								<td>
+									<input type="number" data-field="healthMax" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+							<tr id="attributeBonusDefense">
+								<td>Défense</td>
+								<td>
+									<input type="number" data-field="defense" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+							<tr id="attributeBonusDodge">
+								<td>Esquive</td>
+								<td>
+									<input type="number" data-field="dodge" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+							<tr id="attributeBonusSpeed">
+								<td>Vitesse</td>
+								<td>
+									<input type="number" data-field="speed" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+							<tr id="attributeBonusAccuracy">
+								<td>Précision</td>
+								<td>
+									<input type="number" data-field="accuracy" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+							<tr id="attributeBonusStrength">
+								<td>Force</td>
+								<td>
+									<input type="number" data-field="strength" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+							<tr id="attributeBonusCritical">
+								<td>Critique</td>
+								<td>
+									<input type="number" data-field="critical" step="5" min="0" max="5" value="0">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<input type="submit" id="validateAttributePointsBtn" value="Valider">
+						<input type="submit" id="cancelAttributePointsBtn" value="Annuler">
+					</div>
+				</div>
+				<div id="learnNewSkill" class="hideDisplay invisible">
+					<div id="newSkillTypes" class="flex flexRow alignItemsEnd"></div>
+					<div class="flex flexRow spaceBetween alignItemsStart">
+						<table id="newSkillList">
+							<thead>
+								<tr>
+									<td>Niveau</td>
+									<td>Nom</td>
+									<td>Type</td>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+						<div class="flex flexColumn spaceBetween">
+							<div id="skillDetails"></div>
+							<input type="submit" id="learnThisSkill" value="Apprendre" disabled>
+							<input type="submit" id="learnLater" value="Annuler">
+						</div>
+					</div>
+				</div>
+				<div id="fightEndGood" class="hideDisplay invisible">
+					<p></p>
+					<ul id="lootList"></ul>
+					<div class="flex flexRow spaceAround">
+						<input type="submit" id="leaveDungeon" value="Quitter le donjon">
+						<input type="submit" id="nextFight" value="Ennemi suivant">
+						<input type="submit" id="fightBoss" value="BOSS" disabled>
+						<input type="submit" id="finishDungeon" class="hideDisplay" value="Terminer" disabled>
+					</div>
+				</div>
+				<div id="fightEndBad" class="hideDisplay invisible">
+					<p></p>
+					<input type="submit" id="resurrection" value="Ressuciter hors du donjon...">
+				</div>
+				<div id="blackCurtain" class="hideDisplay invisible"></div>
 			</div>
-			
-<!--			<section>
-				<article id="joueur">
 
-					<h2>Joueur</h2>
-					<img src="img/knight.jpg" alt="Chevalier">
-					<h3>Point de vie : <strong class="pv"></strong>/<strong class="pvMax"></strong></h3>
-					<p>Configurez votre personnage avant le combat :</p>
-
-					<article>
-						<select name="armure" id="armure">
-							<option value="legere">Armure légère</option>
-							<option value="moyenne">Armure intermédiaire</option>
-							<option value="lourde">Armure lourde</option>
-						</select>
-						<select name="arme" id="arme">
-							<option value="dague">Dague</option>
-							<option value="epee">Epée longue</option>
-							<option value="hallebarde">Hallebarde</option>
-						</select>
-					</article>
-
-					<article>
-						<p>Vos caractéristiques :</p>
-
-						<p id="defense">Défense : <span></span> (<em class="joueur"></em> + <em class="armure"></em>)</p>
-						<p id="esquive">Esquive : <span></span> (<em class="joueur"></em> + <em class="armure"></em>)</p>
-						<p id="vitesse">Vitesse : <span></span> (<em class="joueur"></em> + <em class="armure"></em>)</p>
-
-						<p id="precision">Precision : <span></span> (<em class="joueur"></em> + <em class="arme"></em>)</p>
-						<p id="force">Force : <span></span> (<em class="joueur"></em> + <em class="arme"></em>)</p>
-						<p id="critique">Critique : <span></span> (<em class="joueur"></em> + <em class="arme"></em>)</p>
-					</article>
-
-					<button id="start_battle">Commencer le combat</button>
-					<button id="attack">Attaquer</button>
-					<button id="reset">Try again !</button>
-
-				</article>
-
-				<article id="dragon">
-
-					<h2>Dragon</h2>
-					<img src="img/dragon.jpg" alt="Dragon">
-					<h3>Point de vie : <strong class="pv"></strong>/<strong class="pvMax"></strong></h3>
-				
-				</article>
-			</section>
-			<section id="historique">
-
-				<h3>Historique du combat :</h2>
-				<article></article>
-			</section>
--->
 		</main>
 
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="script_final/donnees.js"></script>
 		<script type="text/javascript" src="script_final/fonctions_general.js"></script>
 		<script type="text/javascript" src="script_final/fonctions_welcome.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_fight.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_fight_display.js"></script>
 		<script type="text/javascript" src="script_final/fonctions_creation_character.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_ingame.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_ingame_equipement.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_ingame_highlight.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_ingame_inventory.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_ingame_new_skill.js"></script>
+		<script type="text/javascript" src="script_final/fonctions_ingame_stat.js"></script>
 		<script type="text/javascript" src="script_final/script.js"></script>
 	</body>
 </html>

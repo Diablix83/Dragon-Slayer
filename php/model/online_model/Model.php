@@ -43,6 +43,7 @@
 				$sqlExe[":$key"] =  $value;
 			}
 
+			//substr pour enlever ", " à la fin de $sql
 			$sql = substr($sql, 0, strlen($sql)-2);
 			if(!empty($data['id'])){ $sql .= " WHERE id = :id"; }
 
@@ -51,7 +52,7 @@
 		}
 
 		public function delete($id){
-			$request = $this->db->prepare("DELETE FROM $this->table WHERE users.id = :id");
+			$request = $this->db->prepare("DELETE FROM $this->table WHERE $this->table.id = :id");
 			$request->execute([
 				":id" => $id
 			]);

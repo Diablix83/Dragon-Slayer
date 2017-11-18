@@ -8,7 +8,7 @@
 */
 window.addEventListener("load", function(event) {
     console.log("DOM fully loaded and parsed");
-    window.setTimeout(isUserLog, 50);
+	isUserLog();
 });
 
 /* Welcome */
@@ -53,7 +53,7 @@ characterCreationDiv.querySelector('input.cancel').addEventListener('click', can
 
 /* Ingame - myCharacter */
 
-$('#changeCharacter').on('click', characterUnlog);
+$('#myCharacter>input[type="submit"]:first-child').on('click', characterUnlog);
 
 $('.equiped select').on('change', function(){
 	adaptEquipementAndStance();
@@ -89,21 +89,17 @@ $('#cancelAttributePointsBtn').on('click', function(){
 
 $('#learnNewSkill #learnThisSkill').on('click', function(){
 	$('#blackCurtain').addClass('invisible');
+	$('#blackCurtain').addClass('hideDisplay');
 	$('#learnNewSkill').addClass('invisible');
-	window.setTimeout(function(){
-		$('#blackCurtain').addClass('hideDisplay');
-		$('#learnNewSkill').addClass('hideDisplay');
-	}, 1000);
+	$('#learnNewSkill').addClass('hideDisplay');
 	updateCharacterSkills($('#newSkillList tr.choosen').attr('data-skill_id'));
 })
 
 $('#learnNewSkill #learnLater').on('click', function(){
 	$('#blackCurtain').addClass('invisible');
+	$('#blackCurtain').addClass('hideDisplay');
 	$('#learnNewSkill').addClass('invisible');
-	window.setTimeout(function(){
-		$('#blackCurtain').addClass('hideDisplay');
-		$('#learnNewSkill').addClass('hideDisplay');
-	}, 1000);
+	$('#learnNewSkill').addClass('hideDisplay');
 })
 
 $('#openLearnNewSkill').on('click', displayChooseNewSkillPanel);
@@ -120,68 +116,17 @@ $('#inventoriesName li').on('click', function(){
 });
 
 $('#delete_item').on('click', function(){
-	table_name = $('#delete_item').attr('data-delete_table_name');
-	item_id = $('#delete_item').attr('data-delete_id');
-	item_quantity_modifier = $('#delete_item_value').val() * -1;
+	table_name = $('delete_item').attr('data-delete_table_name');
+	item_id = $('delete_item').attr('data-delete_id');
+	item_quantity_modifier = $('#delete_item_value').val();
 	
 	updateItemOfInventory(table_name, item_id, item_quantity_modifier);
-	$(this).attr({
-		'data-delete_id': 0,
-		'data-delete_table_name': 'none',
-		'disabled': true
-	})
-	$('#delete_item_value').attr({
-		'value':0,
-		'min':0,
-		'max':1
-	});
-	$('#delete_item_value').addClass('hideDisplay');
 });
 
 $('#delete_item_value').on('change', function(){
-	if(parseInt($(this).val(), 10) > parseInt($(this).attr('max'), 10)){
+	if($(this).val() > $(this).attr('max')){
 		$(this).val($(this).attr('max'));
 	}
 });
 
-$('#startDungeon').on('click', dungeonStart);
-$('#fightPanel #attack').on('click', function(){
-	$('#listToUse').addClass('invisible');
-	$('#target').addClass('invisible');
-	window.setTimeout(function(){
-		$('#listToUse').addClass('hideDisplay');
-		$('#target').addClass('hideDisplay');
-	},10);
-	fightDetails.player.action = 'attack';
-	fightDetails.player.target = 'enemy';
-	gameTurn();
-});
-$('#fightPanel #useSkill').on('click', showSkillsListFight);
-$('#fightPanel #useItem').on('click', showItemsListFight);
-$('#fightPanel #flee').on('click', dungeonFlee);
-
-$('#fightPanel #targetMyself').on('click', function(){
-	fightDetails.player.target = 'player';
-	gameTurn();
-
-});
-$('#fightPanel #targetEnemy').on('click', function(){
-	fightDetails.player.target = 'enemy';
-	gameTurn();
-});
-$('#fightPanel #target input[type="submit"]').on('click', function(){
-	$('#listToUse').addClass('invisible');
-	$('#target').addClass('invisible');
-	window.setTimeout(function(){
-		$('#listToUse').addClass('hideDisplay');
-		$('#target').addClass('hideDisplay');
-	},10);
-});
-
-$('#leaveDungeon').on('click', dungeonFlee);
-$('#nextFight').on('click', nextFight);
-$('#fightBoss').on('click', fightBoss);
-$('#finishDungeon').on('click', dungeonFinish);
-
-$('#resurrection').on('click', dungeonFlee);
 

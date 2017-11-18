@@ -7,33 +7,53 @@
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
 
-
-
-#welcome{
+#highlight{
     position: fixed;
+    bottom: 60px;
+    left: calc(60% + 20px);
+    z-index: 2;
+}
+
+#itemChoosen, #itemHover{
+    color: white;
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000,
+                 0px 2px 0px #000000,
+                 2px 0px 0px #000000,
+                 2px 2px 0px #000000,
+                 0px -2px 0px #000000,
+                 -2px 0px 0px #000000,
+                 -2px -2px 0px #000000;
+
+    background: rgba(0,0,0, 0.7);
+    border: 1px solid rgba(0,0,0, 0.9);
+
+    padding: 10px;
+}
+
+#highlight h3{
+    font-size: 1.2rem;
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+#highlight h4{
+    font-size: 1.6rem;
+    margin: 5px;
+    padding: 5px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#highlight p{
+    text-align: left;
     font-size: 1.4rem;
-    text-align: center;
-    transition: all 2.5s;
-    top: calc(50% - 152px);
-    width: 100%;
+    margin: 5px;
 }
-
-#connexion, #inscription{
-    width: 340px;
-    margin: 20px;
-    padding: 20px;
-
-    background: #c4c4c4;
-    border-radius: 20px;
-    border: 30px solid;
-    border-image-source: url(../img/vis_bordure.png);
-    border-image-slice: 100;
-    border-image-repeat: round;
-    border-image-width: 30px;
-    /* border-image-height: 20px; */
-}
-
-
 
 /*
     ██╗███╗   ███╗ █████╗ ██╗███╗   ██╗

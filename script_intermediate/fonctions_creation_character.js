@@ -212,6 +212,7 @@ function saveCharacter(e){
 				name : $('#newCharName').val(),
 				user_id: sessionStorage.getItem('userId'),
 				healthMax: newCharHealthMax,
+				health: newCharHealthMax,
 				defense: newCharDefense,
 				dodge: newCharDodge,
 				speed: newCharSpeed,

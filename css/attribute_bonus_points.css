@@ -7,32 +7,70 @@
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
 
-
-
-#welcome{
+#attributeBonusPointsPanel{
     position: fixed;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    background: burlywood;
+    border: 1px solid chocolate;
+    border-right: 0;
+
+    max-height: calc(100% - 123px);
+    width: calc(40% - 20px);
+
+    padding: 10px;
+
+    top: 163px;
+    right: 0;
+
+    transition: all 0.5s;
+}
+
+#attributeBonusPointsPanel h3{
+    font-size: 2rem;
+    border-bottom: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+#attributeBonusPointsPanel table{
+    border: 1px solid black;
+    margin: 5px auto;
+    border-spacing: 0;
+    width: 90%;
+}
+
+#attributeBonusPointsPanel thead{
+    background: brown;
+}
+
+#attributeBonusPointsPanel tbody{
+    background: #c7a3a3;
+}
+
+#attributeBonusPointsPanel thead td{
+    padding: 5px;
+}
+
+#attributeBonusPointsPanel tbody td{
+    padding: 2px;
+}
+
+#attributeBonusPointsPanel tbody tr td:first-of-type{
+    text-align: left;
+    padding-left: 30px;
+}
+
+
+#attributeBonusPointsPanel input[type="number"]{
+    width: 70px;
+}
+
+#attributeBonusPointsPanel input[type="submit"]{
     font-size: 1.4rem;
-    text-align: center;
-    transition: all 2.5s;
-    top: calc(50% - 152px);
-    width: 100%;
 }
-
-#connexion, #inscription{
-    width: 340px;
-    margin: 20px;
-    padding: 20px;
-
-    background: #c4c4c4;
-    border-radius: 20px;
-    border: 30px solid;
-    border-image-source: url(../img/vis_bordure.png);
-    border-image-slice: 100;
-    border-image-repeat: round;
-    border-image-width: 30px;
-    /* border-image-height: 20px; */
-}
-
 
 
 /*

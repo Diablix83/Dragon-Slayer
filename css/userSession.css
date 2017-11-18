@@ -9,14 +9,18 @@
 
 #userSession{
     position: fixed;
+    top: 43px;
+    left: 0;
 
     font-size: 1.4rem;
     text-align: center;
 
     background: #c4c4c4;
 
-    height: 100%;
-    width: 300px;
+    height: calc(100% - 83px);
+    width: 330px;
+    
+
     transition: all 1s;
 }
 
@@ -24,20 +28,140 @@
     font-weight: bold;
 }
 
-#userSession div{
+#userSession ul{
+    overflow-y: auto;
+}
+
+#userSession li{
+    text-align: left;
+    list-style: none;
+    cursor: pointer;
+
+    width: 90%;
+    background: #c4c4c4;
+    border: 1px solid #4c4c4c;
+    padding: 10px;
+
+    transition: all 0.5s;
+}
+
+#userSession li:hover{
+    color: white;
+    background: #808080;
+}
+
+#userSession li *{
+    margin: 0;
+}
+
+#userSession li div{
+    display: none;
+}
+
+#userSession .selectedCharacter{
+    color: white;
+    background: #505050;
+}
+
+#userSession .selectedCharacter div{
+    display: flex;
+}
+
+#userSession>div{
     margin: 10px;
+}
+
+#userSession .btnUserSession{
+    padding: 5px;
+}
+
+#userSession .btnUserSession input[type="submit"]{
+    height: 25px;
 }
 
 #characterCreation{
     position: fixed;
-    width: calc(100% - 320px);
-    height: calc(100% - 40px);
-    background: navy;
-    padding: 20px;
-    top: 20px;
+    top: 63px;
     right: 0;
 
+    width: calc(100% - 350px);
+    height: calc(100% - 123px);
+    background: royalblue;
+    
+    font-size: 1.6rem;
+
+    padding: 20px;
+
     transition: all 2s;
+    overflow-y: auto;
+}
+
+#characterCreation label, #characterCreation select{
+    display: inline-block;
+}
+
+#characterCreation input[type="text"], #characterCreation select{
+    width: 200px;
+}
+
+#characterCreation table{
+    text-align: left;
+}
+
+#characterCreation td{
+    padding: 5px;
+}
+
+#characterCreation tr td:last-child span:nth-of-type(1){
+    color: gold;
+}
+
+#characterCreation tr td:last-child span:nth-of-type(2){
+    color: greenyellow;
+}
+
+#characterCreation tr td:last-child span:nth-of-type(3){
+    color: #DEDEDE;
+}
+
+#creation, #details{
+    font-weight: bold;
+    width: 50%;
+    padding: 10px
+}
+
+#creation{
+    /* float: left; */
+    text-align: left;
+    min-width: 350px;
+    max-width: 500px;
+}
+
+#details{
+    /*float: right;*/
+    min-width: 350px;
+    max-width: 700px;
+}
+
+#details p{
+    height: 80px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+#details div{
+    text-align: left;
+}
+
+#details>div>div{
+    flex: 1;
+    margin: 1%;
+}
+
+#details div ul{
+    max-height: 130px;
+    min-height: 40px;
+    overflow-y: auto;
 }
 
 

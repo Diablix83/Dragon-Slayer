@@ -7,32 +7,34 @@
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
 
-
-
-#welcome{
+.firstGate{
     position: fixed;
-    font-size: 1.4rem;
+    z-index: 1000;
+    
     text-align: center;
-    transition: all 2.5s;
-    top: calc(50% - 152px);
+    background: green;
     width: 100%;
+    padding: 10px;
+
+    transition: all 2.5s;
 }
 
-#connexion, #inscription{
-    width: 340px;
-    margin: 20px;
-    padding: 20px;
-
-    background: #c4c4c4;
-    border-radius: 20px;
-    border: 30px solid;
-    border-image-source: url(../img/vis_bordure.png);
-    border-image-slice: 100;
-    border-image-repeat: round;
-    border-image-width: 30px;
-    /* border-image-height: 20px; */
+.firstGate.top{
+    top: 0;
 }
 
+.firstGate h1{
+    font-size: 2rem;
+    padding: 0;
+}
+
+.firstGate.bottom{
+    bottom: 0;
+}
+.firstGate h2{
+    font-size: 1.8rem;
+    padding: 0;
+}
 
 
 /*

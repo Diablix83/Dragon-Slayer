@@ -6,34 +6,93 @@
 ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
+/* 
 
+section{
+    margin: 0 auto;
+}
 
-
-#welcome{
-    position: fixed;
-    font-size: 1.4rem;
+article{
+    display: inline-block;
+    vertical-align: top;
+    max-width: 400px;
+    margin: 10px;
     text-align: center;
-    transition: all 2.5s;
-    top: calc(50% - 152px);
+    font-size: 1.4rem;
+}
+
+h2{
+    font-size: 5rem;
+    margin: 0;
+    padding: 10px;
+}
+
+img{
+    height: 100px;
+}
+
+h3{
+    font-size: 3rem;
+    margin: 0;
+    padding: 10px;
+}
+
+.pv{
+    color: firebrick;
+}
+
+p{
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+article p{
+    text-align: left;
+}
+
+.rouge{
+    color: red;
+}
+
+.bleu{
+    color: blue;
+}
+
+#historique{
     width: 100%;
 }
+#historique article{
+    max-height: 180px;
+    overflow: scroll;
+} */
 
-#connexion, #inscription{
-    width: 340px;
-    margin: 20px;
-    padding: 20px;
+/*######################*/
+/*## Personnalisation ##*/
+/*######################*/
 
-    background: #c4c4c4;
-    border-radius: 20px;
-    border: 30px solid;
-    border-image-source: url(../img/vis_bordure.png);
-    border-image-slice: 100;
-    border-image-repeat: round;
-    border-image-width: 30px;
-    /* border-image-height: 20px; */
+/* select{
+    display: block;
 }
 
+.joueur{
+    color: cornflowerblue;
+}
 
+select #arme{
+    background-color: goldenrod;
+}
+
+.arme{
+    color: goldenrod;
+}
+
+select #armure{
+    background-color: teal;
+}
+
+.armure{
+    color: teal;
+} */
 
 /*
     ██╗███╗   ███╗ █████╗ ██╗███╗   ██╗

@@ -7,70 +7,264 @@
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
 
-section{
-    margin: 0 auto;
-}
 
-article{
-    display: inline-block;
-    vertical-align: top;
-    max-width: 400px;
-    margin: 10px;
-    text-align: center;
+#myCharacter{
+    position: fixed;
+    top: 63px;
+    left: 0;
+
     font-size: 1.4rem;
+    overflow-y: auto;
+
+    color: #e0e0e0;
+
+    width: 60%;
+    height: calc(100% - 123px);
+    background: #4c4c4c;
+
+    transition: all 1s;
 }
 
-img{
-    height: 100px;
+#myCharacter h5{
+    font-size: 1.3rem;
+    margin: 5px;
 }
 
-.pv{
+.equiped{
+    width: 180px;
+}
+
+.equiped select{
+    width: 170px;
+}
+
+#fightStance{
+    margin: 30px auto;
+    width: 350px;
+}
+
+#fightStance input[type="radio"]{
+    display: none;
+}
+
+#fightStance label{
+    cursor: pointer;
+    background: #404040;
+    border: 1px solid white;
+
+    padding: 5px;
+}
+
+#fightStance label:hover{
+    background: #707070;
+    border: 1px solid grey;
+}
+
+#fightStance label.choosen{
+    color: black;
+    background: gold;
+    border: 1px solid black;
+}
+
+#fightStance label.disabled{
+    color: #3f3f3f;
+    background: #aaaaaa;
+    border: 1px solid #2f2f2f;
+}
+
+#fightStance label.disabled:hover{
+    color: #3f3f3f;
+    background: #aaaaaa;
+    border: 1px solid #2f2f2f;
+}
+
+#fightStance label.notMyClass{
+    color: white;
+    background: firebrick;
+    border: 1px solid black;
+}
+
+#fightStance label.notMyClass:hover{
+    color: white;
+    background: firebrick;
+    border: 1px solid black;
+}
+
+#myCharacterStats>div{
+    width: 75%;
+    margin: 5px auto;
+}
+
+#myCharacterStats>div p{
+    margin: 0;
+}
+
+#myCharacterStats table{
+    width: 90%;
+    margin: 10px auto;
+    font-weight: bold;
+    border-spacing: 0;
+}
+
+#myCharacterStats tr td:not(:first-of-type){
+    min-width: 100px;
+}
+
+#myCharacterStats .armors{
+    color: blue;
+}
+#myCharacterStats .weapons{
     color: firebrick;
 }
-
-p{
-    font-size: 1.4rem;
-    font-weight: normal;
+#myCharacterStats tr td:nth-of-type(4){
+    color: greenyellow;
+}
+#myCharacterStats tr td:nth-of-type(5){
+    color: gold;
+}
+#myCharacterStats tr td:nth-of-type(6){
+    color: #bb9696;
+}
+#myCharacterStats thead td{
+    background: #393939;
+    padding: 2px;
+}
+#myCharacterStats tbody td{
+    background: #404040;
+    padding: 5px;
+}
+#myCharacterStats tbody tr:hover td{
+    background: #222222;
 }
 
-article p{
+#inventory ul{
+    list-style: none;
     text-align: left;
+    font-weight: bold;
+    overflow-y: auto;
 }
 
-#historique{
+#inventory #inventoriesName{
+    width: 240px;
+    margin: 36px 0px 0px 5px;
+    padding: 0;
+}
+
+#inventory #inventoriesName li{
+    cursor: pointer;
+
+    border: 1px solid black;
+    
+    padding: 5px;
+    margin: 2px;
+}
+
+#inventory #inventoriesName li:hover{
+    color: black;
+
+    background: goldenrod;
+}
+
+/* class for [ #inventory>ul li ] */
+#inventory #inventoriesName li.choosen{
+    color: black;
+
+    background: gold;
+}
+
+#inventory>div:first-of-type input{
+    margin: 10px;
+}
+
+#inventory>div:nth-of-type(2){
+    width: calc(100% - 260px);
+    padding: 5px;
+}
+
+#choosenList{
     width: 100%;
-}
-#historique article{
-    max-height: 180px;
-    overflow: scroll;
-}
+    min-height: 118px;
+    max-height: 150px;
 
-/*######################*/
-/*## Personnalisation ##*/
-/*######################*/
-
-select{
-    display: block;
+    border: 1px solid black;
+    padding: 5px;
 }
 
-.joueur{
-    color: cornflowerblue;
+#choosenList li{
+    cursor: pointer;
+
+    background: #2c2c2c;
+    border: 1px solid #2c2c2c;
+
+    padding: 5px;
+    margin: 2px;
 }
 
-select #arme{
-    background-color: goldenrod;
+#choosenList li:hover{
+    color: black;
+
+    background: #dddddd;
+    border: 1px solid black;
 }
 
-.arme{
-    color: goldenrod;
+#choosenList li.choosen{
+    color: black;
+
+    background: #dddddd;
+    border: 1px solid gold;
 }
 
-select #armure{
-    background-color: teal;
+ul#choosenList li.notMyClass{
+    color: red;
 }
 
-.armure{
-    color: teal;
+#expBar{
+    position: relative;
+    text-align: center;
+
+    background: black;
+    border: 1px solid white;
+    
+    margin: 0 5px;
+    height: 22px;
+
+}
+
+#expBar div:first-of-type{
+    position: absolute;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+}
+
+#expBar p{
+    text-align: center;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000;
+}
+
+#progressionBar{
+    position: absolute;
+    z-index: 1;
+
+    background: gold;
+    
+    max-width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
 }
 
 /*

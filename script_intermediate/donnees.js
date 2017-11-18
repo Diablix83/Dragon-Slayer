@@ -79,7 +79,6 @@ const currentCharacter = {
 			id: null,
 			level: null,
 			name: null,
-			nb_finished_dungeon: null,
 			race: null,
 			speed: null,
 			strength: null,
@@ -122,52 +121,3 @@ const defaultEquipements = {
 
 }
 let creationStatPoints = 0;
-
-const fightDetails = {
-	fight: false,
-	nbMobsKilled: 0,
-	turnMeter: 1,
-	lastLoots: [],
-	playerPvCheck: 0,
-	player: {
-		name: null,
-		health: 0,
-		healthMax:0,
-		healthPrct: 0,
-		defense: 0,
-		dodge: 0,
-		speed: 0,
-		accuracy: 0,
-		strength: 0,
-		critical: 0,
-		skills:[],
-		items:[],
-		action: null,
-		target: null,
-		skillChoosen: null,
-		itemChoosen: null
-	},
-	mobsList:[],
-	boss: null,
-	enemy: {
-		isBoss: false,
-		name: null,
-		health: 0,
-		healthMax:0,
-		healthPrct: 0,
-		defense: 0,
-		dodge: 0,
-		speed: 0,
-		accuracy: 0,
-		strength: 0,
-		critical: 0,
-		skills:[],
-		weakness:[],
-		skillChoosen: null,
-		target: null,
-		level: 0,
-		exp_gain: 0
-	}
-}
-
-

@@ -7,12 +7,6 @@
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 */
 
-function getRandomIntInclusive(min, max){
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min +1)) + min;
-}
-
 function isUserLog(){
 	if(sessionStorage.getItem('userEmail') != undefined && sessionStorage.getItem('userPseudo') != undefined){
 		let userId = sessionStorage.getItem('userId');
@@ -79,13 +73,13 @@ function characterLog(charId){
 		currentCharacter.dead = donnees.character.dead;
 		currentCharacter.defense = donnees.character.defense;
 		currentCharacter.dodge = donnees.character.dodge;
-		currentCharacter.exp = parseInt(donnees.character.exp, 10);
+		currentCharacter.exp = donnees.character.exp;
 		currentCharacter.fighting_stance = donnees.character.fighting_stance;
+		currentCharacter.health = donnees.character.health;
 		currentCharacter.healthMax = donnees.character.healthMax;
 		currentCharacter.id = donnees.character.id;
 		currentCharacter.level = donnees.character.level;
 		currentCharacter.name = donnees.character.name;
-		currentCharacter.nb_finished_dungeon = parseInt(donnees.character.nb_finished_dungeon, 10);
 		currentCharacter.race = Object.assign({}, gameDataLibrary.races.find(oneRace => oneRace.id == donnees.character.race));
 		currentCharacter.speed = donnees.character.speed;
 		currentCharacter.strength = donnees.character.strength;
@@ -107,7 +101,6 @@ function characterLog(charId){
 		refreshCharacterDisplay();
 		$('#userSession').addClass('hideLeft');
 		$('#myCharacter').removeClass('hideLeft');
-		$('#fightPanel').removeClass('hideRight');
 
 		$('#fightStance label:last-of-type').addClass('notMyClass');
 		$('#fightingStance3').prop('disabled', true);
@@ -176,9 +169,8 @@ function refreshCharactersList(userId){
 
 			$(li).on('click', function(){
 				// au click :
-				//				-> enlever la classe : selectedCharacter de tous les éléments de chaque liste
+				//				-> enlever la classe : selectedCharacter de tous les éléments de la liste en cours
 				$('#charactersAlive li').removeClass('selectedCharacter');
-				$('#charactersDead li').removeClass('selectedCharacter');
 				//				-> ajouter la classe : selectedCharacter sur l'élément choisi
 				$(this).addClass('selectedCharacter');
 			});
@@ -199,53 +191,14 @@ function refreshCharactersList(userId){
 			const charName = $(`<h4>`);
 			const charDetail = $(`<p>`);
 			charName.html(character.name);
+			charDetail.html(`${character.class} ${character.race} ${character.level}`);
 
-			const btnsDiv = $('<div class="flex flexRow spaceBetween">');
-			const btnPlay = $('<input type="submit" value="Jouer">')
-			const btnDelete = $('<input type="submit" value="Supprimer">')
-			$(btnsDiv).append(btnPlay, btnDelete);
-
-			$(btnPlay).on('click', function(){
-				// au click :
-				//				-> on charge le personnage et on commence a jouer !
-				characterLog(character.id);
-			});
-
-			$(btnDelete).on('click', function(){
-				// au click :
-				//				-> on supprime le personnage ! Il ne va pas dans la partie "personnages perdu" !
-				deleteCharacter(character.id);
-			});
-
-
-			const myClassName = gameDataLibrary.class.find(oneClass => oneClass.id == character.class).name;
-			const myRaceName = gameDataLibrary.races.find(oneRace => oneRace.id == character.race).name;
-
-			const exp_required = Math.round((parseInt(character.level, 10)*10)*Math.exp(parseInt(character.level, 10)+1));
-			console.log(exp_required);
-			const exp_pourcent = ((parseInt(character.exp, 10)*100)/exp_required).toFixed(2);
-			console.log(exp_pourcent);
-			charDetail.html(`${myClassName} ${myRaceName} [${character.level} : ${exp_pourcent}%]`);
-
-			$(li).append(charName, charDetail, btnsDiv);
-
-			$(li).on('click', function(){
-				// au click :
-				//				-> enlever la classe : selectedCharacter de tous les éléments de chaque liste
-				$('#charactersDead li').removeClass('selectedCharacter');
-				$('#charactersAlive li').removeClass('selectedCharacter');
-				//				-> ajouter la classe : selectedCharacter sur l'élément choisi
-				$(this).addClass('selectedCharacter');
-			});
-
-			$(li).on('dblclick', function(){
-				// au double-click :
-				//				-> on charge le personnage et on commence a jouer !
-				characterLog(character.id);
-			});
+			$(li).append(charName, charDetail);
 			$('#charactersDead').append(li);
 		})
 		console.groupEnd('refreshCharactersList');
 	});
+
 }
+
 

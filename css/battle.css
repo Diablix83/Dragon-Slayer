@@ -6,93 +6,308 @@
 ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
 */
-/* 
 
-section{
-    margin: 0 auto;
-}
+#fightPanel{
+    position: fixed;
+    top: 63px;
+    right: 20px;
 
-article{
-    display: inline-block;
-    vertical-align: top;
-    max-width: 400px;
-    margin: 10px;
-    text-align: center;
     font-size: 1.4rem;
+    overflow-y: auto;
+
+    width: calc(40% - 40px);
+    height: calc(100% - 123px);
+
+
+    transition: all 1s;
 }
 
-h2{
-    font-size: 5rem;
+#fightPanel p{
     margin: 0;
-    padding: 10px;
 }
 
-img{
-    height: 100px;
-}
-
-h3{
-    font-size: 3rem;
-    margin: 0;
-    padding: 10px;
-}
-
-.pv{
-    color: firebrick;
-}
-
-p{
-    font-size: 1.4rem;
-    font-weight: normal;
-}
-
-article p{
-    text-align: left;
-}
-
-.rouge{
-    color: red;
-}
-
-.bleu{
-    color: blue;
-}
-
-#historique{
+#fightPanel>div{
+    position: relative;
     width: 100%;
+    height: 100%;
 }
-#historique article{
-    max-height: 180px;
-    overflow: scroll;
-} */
 
-/*######################*/
-/*## Personnalisation ##*/
-/*######################*/
+#fightPanel #startDungeon, #fightPanel #mobsCounter, #fightPanel #enemyDisplay, 
+#fightPanel #target, #fightPanel #myDisplay{
+    transition: all 0.5s;
+}
 
-/* select{
+#startDungeon{
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 77px);
+
+    width: 154px;
+
+}
+
+#mobsCounter{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#mobsCounter p{
+}
+
+#enemyDisplay{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background: firebrick;
+
+    padding-top: 5px;
+
+    width:100%; 
+
+}
+
+#enemyDisplay p{
+    color: white;
+    
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000;    
+}
+
+#target{
+    position: absolute;
+    bottom: 300px;
+    left: 0;
+    background: darkcyan;
+
+    padding: 4px;
+
+    width: 100%;
+    height: 30px;
+
+}
+
+#myDisplay{
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    background: steelblue;
+
+    padding: 5px;
+
+    width: 100%;
+    height: 145px;
+
+}
+
+#fightPanel .healthMax{
+    position: relative;
+
+    background: black;
+    border: 1px solid white;
+    
+    width: 95%;
+    height: 22px;
+    margin: 5px auto 10px auto;
+}
+
+#fightPanel .healthMax>div:first-of-type{    
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+#fightPanel .healthMax p{    
+    color: white;
+    
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000;
+}
+
+#fightPanel .currentHealth{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    background: crimson;
+    
+    max-width: 100%;
+    height: 100%;
+
+
+}
+
+#myDisplay #action{
+    height: 97px;
+    width: 135px;
+}
+
+#listToUse{
+    font-weight: bold;
+    width: calc(100% - 140px);
+    max-width: 480px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#listToUse tr td:nth-of-type(1){
+    min-width: 70px;
+    /* width: 25%; */
+    width: 120px;
+    max-width: 120px;
+}
+
+#listToUse tr td:nth-of-type(2){
+    /* min-width: 150px;
+    max-width: 280px; */
+    width: 280px;
+}
+
+#listToUse tr td:nth-of-type(3){
+    width: 80px;
+}
+
+#listToUse tbody tr.reloading td{
+    color: #4c4c4c
+}
+
+#listToUse tbody tr.choosen td{
+    color: gold;
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000,
+                 0px 2px 0px #000000,
+                 2px 0px 0px #000000,
+                 2px 2px 0px #000000,
+                 0px -2px 0px #000000,
+                 -2px 0px 0px #000000,
+                 -2px -2px 0px #000000;
+}
+
+#listToUse tbody tr:hover td{
+    color: white;
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000,
+                 0px 2px 0px #000000,
+                 2px 0px 0px #000000,
+                 2px 2px 0px #000000,
+                 0px -2px 0px #000000,
+                 -2px 0px 0px #000000,
+                 -2px -2px 0px #000000;
+}
+
+#listToUse tbody tr.reloading:hover td{
+    color: #c4c4c4;
+    text-shadow: 0px 1px 0px #000000,
+                 1px 0px 0px #000000,
+                 1px 1px 0px #000000,
+                 0px -1px 0px #000000,
+                 -1px 0px 0px #000000,
+                 -1px -1px 0px #000000,
+                 0px 2px 0px #000000,
+                 2px 0px 0px #000000,
+                 2px 2px 0px #000000,
+                 0px -2px 0px #000000,
+                 -2px 0px 0px #000000,
+                 -2px -2px 0px #000000;
+}
+
+#listToUse thead, #listToUse tbody{
     display: block;
+    padding: 5px;
 }
 
-.joueur{
-    color: cornflowerblue;
+#listToUse thead{
+    cursor: default;
 }
 
-select #arme{
-    background-color: goldenrod;
+#listToUse tbody{
+    cursor: pointer;
+    overflow: auto;
+    height: 69px;
 }
 
-.arme{
-    color: goldenrod;
+#historic{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: rgba(255, 255, 255, 0.7);
+    overflow-y: auto;
+
+    width: 100%;
+    height: 145px;
+
+    padding: 5px;
+    border: 3px double black;
+    border-radius: 10px;
+
+    text-align: left;
+    font-weight: bold;
+
+    cursor: default;
+
+    transition: all 0.5s;
 }
 
-select #armure{
-    background-color: teal;
+#fightEndGood, #fightEndBad{
+    position: fixed;
+    z-index: 101;
+    top: 63px;
+    left: 20%;
+
+    width: 60%;
+    min-width: 730px;
+    max-width: 950px;
+    max-height: calc(100% - 123px);
+
+    padding: 10px;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+    
+    background: burlywood;
+    border-radius: 5px;
+    border: 1px solid chocolate;
+
+    transition: all 0.5s;
 }
 
-.armure{
-    color: teal;
-} */
+#fightEndGood #lootList{
+    text-align: left;
+    list-style: none;
+}
+
+
 
 /*
     ██╗███╗   ███╗ █████╗ ██╗███╗   ██╗

@@ -1,0 +1,40 @@
+[20-Sep-2017 07:58:21 UTC] PHP Fatal error:  Call to undefined method UsersController::login() in /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php on line 16
+[20-Sep-2017 07:58:21 UTC] PHP Stack trace:
+[20-Sep-2017 07:58:21 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[20-Sep-2017 07:58:50 UTC] PHP Fatal error:  Call to undefined method MastersController::all() in /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php on line 16
+[20-Sep-2017 07:58:50 UTC] PHP Stack trace:
+[20-Sep-2017 07:58:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[20-Sep-2017 12:44:26 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'password' cannot be null' in /home/ubuntu/workspace/Dragon-Slayer-master/php/model/Model.php:50
+Stack trace:
+#0 /home/ubuntu/workspace/Dragon-Slayer-master/php/model/Model.php(50): PDOStatement->execute(Array)
+#1 /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php(18): Model->save(Array)
+#2 /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php(16): UsersController->createUser()
+#3 {main}
+  thrown in /home/ubuntu/workspace/Dragon-Slayer-master/php/model/Model.php on line 50
+[20-Sep-2017 12:59:22 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'password' cannot be null' in /home/ubuntu/workspace/Dragon-Slayer-master/php/model/Model.php:50
+Stack trace:
+#0 /home/ubuntu/workspace/Dragon-Slayer-master/php/model/Model.php(50): PDOStatement->execute(Array)
+#1 /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php(19): Model->save(Array)
+#2 /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php(16): UsersController->createUser()
+#3 {main}
+  thrown in /home/ubuntu/workspace/Dragon-Slayer-master/php/model/Model.php on line 50
+[20-Sep-2017 13:18:18 UTC] PHP Warning:  password_verify() expects parameter 2 to be string, array given in /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php on line 28
+[20-Sep-2017 13:18:18 UTC] PHP Stack trace:
+[20-Sep-2017 13:18:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[20-Sep-2017 13:18:18 UTC] PHP   2. UsersController->userConnexion() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:16
+[20-Sep-2017 13:18:18 UTC] PHP   3. password_verify() /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php:28
+[20-Sep-2017 13:35:21 UTC] PHP Fatal error:  Call to undefined method UsersController::login() in /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php on line 16
+[20-Sep-2017 13:35:21 UTC] PHP Stack trace:
+[20-Sep-2017 13:35:21 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[21-Sep-2017 14:45:34 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php on line 14
+[21-Sep-2017 14:45:34 UTC] PHP Stack trace:
+[21-Sep-2017 14:45:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[21-Sep-2017 14:45:34 UTC] PHP   2. require_once() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:2
+[21-Sep-2017 14:45:52 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php on line 14
+[21-Sep-2017 14:45:52 UTC] PHP Stack trace:
+[21-Sep-2017 14:45:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[21-Sep-2017 14:45:52 UTC] PHP   2. require_once() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:2
+[21-Sep-2017 14:47:06 UTC] PHP Parse error:  syntax error, unexpected ''">https://dragon-slayer-diabl' (T_CONSTANT_ENCAPSED_STRING) in /home/ubuntu/workspace/Dragon-Slayer-master/php/controller/UsersController.php on line 53
+[21-Sep-2017 14:47:06 UTC] PHP Stack trace:
+[21-Sep-2017 14:47:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:0
+[21-Sep-2017 14:47:06 UTC] PHP   2. require_once() /home/ubuntu/workspace/Dragon-Slayer-master/php/askdb.php:2
